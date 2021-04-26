@@ -1,0 +1,31 @@
+{
+  "name": "@pventa/app",
+  "version": "0.1.0",
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "scripts": {
+    "build": "next build",
+    "clean": "rimraf dist *.tsbuildinfo",
+    "dev": "next dev",
+    "lint": "scripty",
+    "start": "next start",
+    "test": "scripty"
+  },
+  "dependencies": {
+    "next": "10.1.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/node": "^14.14.41",
+    "@types/react": "^17.0.3",
+    "typescript": "^4.2.4"
+  },
+  "scripty": {
+    "path": "../../scripts/packages"
+  }
+}
