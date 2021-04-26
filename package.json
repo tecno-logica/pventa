@@ -10,7 +10,7 @@
     "packages/*"
   ],
   "scripts": {
-    "greet": "scripty",
+    "prepare": "husky install",
     "build": "scripty",
     "clean": "scripty",
     "lint": "scripty",
@@ -45,7 +45,7 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "yarn commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
