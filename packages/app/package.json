@@ -5,6 +5,7 @@
     "access": "restricted"
   },
   "scripts": {
+    "api-report": "scripty",
     "build": "next build",
     "clean": "rimraf dist *.tsbuildinfo",
     "dev": "next dev",
