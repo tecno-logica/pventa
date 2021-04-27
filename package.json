@@ -11,12 +11,12 @@
   ],
   "scripts": {
     "api-docs": "scripty",
-    "build": "scripty",
-    "clean": "scripty",
-    "dev": "scripty",
-    "lint": "scripty",
+    "build": "yarn lerna run build",
+    "clean": "yarn lerna run clean --concurrency",
+    "dev": "yarn lerna run dev --scope @pventa/app --stream",
+    "lint": "yarn lerna run lint --stream --concurrency 2",
     "prepare": "husky install",
-    "test": "scripty"
+    "test": "yarn lerna run test --stream"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
