@@ -1,0 +1,22 @@
+mutation loginCompany($name: String!) {
+  loginCompany(options: { name: $name }) {
+    errors {
+      field
+      message
+    }
+    company {
+      id
+      rnc
+      name
+    }
+    config {
+      NomEmpresa
+      Direccion
+      Itbis
+      Itbis1
+      RNC
+      Correo_Electronico
+      TipoEmpresa
+    }
+  }
+}

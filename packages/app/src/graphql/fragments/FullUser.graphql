@@ -1,0 +1,12 @@
+fragment FullUser on User {
+  id
+  cedula
+  username
+  firstName
+  lastName
+  email
+  isActive
+  role
+  createdAt
+  updatedAt
+}

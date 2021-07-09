@@ -1,0 +1,32 @@
+mutation RegisterCompany(
+  $host: String!
+  $database: String!
+  $username: String!
+  $password: String!
+) {
+  registerCompany(
+    options: {
+      host: $host
+      database: $database
+      username: $username
+      password: $password
+    }
+  ) {
+    errors {
+      field
+      message
+    }
+    company {
+      rnc
+    }
+    config {
+      NomEmpresa
+      Direccion
+      Itbis
+      Itbis1
+      RNC
+      Correo_Electronico
+      TipoEmpresa
+    }
+  }
+}

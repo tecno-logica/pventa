@@ -11,24 +11,43 @@
     "dev": "next dev",
     "lint": "scripty",
     "start": "next start",
-    "test": "scripty"
+    "test": "scripty",
+    "gen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "next": "10.1.3",
+    "@graphql-codegen/cli": "^1.21.6",
+    "@urql/exchange-graphcache": "^4.2.0",
+    "bootstrap": "5.0.2",
+    "classnames": "^2.3.1",
+    "formik": "^2.2.9",
+    "graphql": "^15.5.1",
+    "next": "^11.0.1",
+    "next-urql": "^3.1.1",
     "react": "17.0.2",
+    "react-bootstrap": "^2.0.0-beta.2",
     "react-dom": "17.0.2",
-    "sass": "^1.32.11"
+    "react-is": "^17.0.2",
+    "react-spring": "^9.2.3",
+    "react-transition-group": "^4.4.2",
+    "sass": "^1.32.11",
+    "urql": "^2.0.4",
+    "wonka": "^4.0.15"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-typescript": "^7.13.0",
+    "@graphql-codegen/cli": "1.21.6",
+    "@graphql-codegen/typescript": "1.22.4",
+    "@graphql-codegen/typescript-operations": "1.18.3",
+    "@graphql-codegen/typescript-urql": "^2.0.10",
     "@types/node": "^14.14.41",
     "@types/react": "^17.0.3",
+    "@types/react-transition-group": "^4.4.2",
     "autoprefixer": "^10.2.5",
     "postcss": "^8.2.13",
     "tailwindcss": "^2.1.2",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.4"
   },
   "scripty": {
     "path": "../../scripts/packages"

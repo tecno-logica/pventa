@@ -1,0 +1,12 @@
+mutation register($cedula: String!, $password: String!, $role: Int!) {
+  register(options: { cedula: $cedula, password: $password, role: $role }) {
+    errors {
+      field
+      message
+    }
+    user {
+      ...FullUser
+    }
+    password
+  }
+}

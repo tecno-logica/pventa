@@ -12,8 +12,9 @@
   "scripts": {
     "api-docs": "scripty",
     "build": "yarn lerna run build",
-    "clean": "yarn lerna run clean --concurrency",
-    "dev": "yarn lerna run dev --scope @pventa/app --stream",
+    "clean": "yarn lerna run clean --concurrency 2",
+    "dev": "yarn lerna run dev --stream",
+    "dev:app": "yarn lerna run dev --scope @pventa/app --stream",
     "lint": "yarn lerna run lint --stream --concurrency 2",
     "prepare": "husky install",
     "test": "yarn lerna run test --stream"

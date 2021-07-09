@@ -1,0 +1,32 @@
+#physical-inventory-master {
+    .form-group {
+        margin-bottom: 0;
+    }
+
+    #product-modal {
+        .modal-header {
+            .input-group {
+                width: 60%;
+            }
+        }
+        .modal-body {
+            table {
+                tbody {
+                    tr {
+                        cursor: pointer;
+                    }
+                }
+                tfoot {
+                    tr {
+                        td {
+                            cursor: pointer;
+                            &:hover {
+                                background-color: rgb(195, 195, 195);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

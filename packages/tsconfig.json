@@ -1,4 +1,7 @@
 {
-  "files": []
-  //   ,"references": [{ "path": "app" }] /* when we add another typescript package */
+  "files": [],
+  "references": [
+    { "path": "app" },
+    { "path": "server" }
+  ] /* when we add another typescript package */
 }

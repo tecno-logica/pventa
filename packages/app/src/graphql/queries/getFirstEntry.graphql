@@ -1,0 +1,41 @@
+query getFirstEntry {
+  getFirstPhysicalInventoryEntry {
+    errors {
+      field
+      message
+    }
+    physicalInventory {
+      CodTransac
+      Codigo
+      Existencia
+      Usuario
+      FechaConteo
+      ExistenciaSistema
+      FechaProceso
+    }
+    inventory {
+      Codigo
+      Descripcion
+      Itbis
+      CostoUS
+      CostoPromedio
+      Precio0
+      Precio1
+      Precio2
+      PrecioVenta
+      Existencia
+      CodigoBarra
+    }
+    distribution {
+      Id
+      CodTransac
+      Codigo
+      Ubicacion
+      Cantidad
+      Lote
+      FechaFabricacion
+      FechaVence
+      RegistroSanitario
+    }
+  }
+}

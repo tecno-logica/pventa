@@ -1,0 +1,9 @@
+{
+  "extends": ["../../.eslintrc"],
+  "parserOptions": { "project": "tsconfig.json" },
+  "rules": {
+    "max-classes-per-file": 1000,
+    "class-methods-use-this": "off",
+    "@typescript-eslint/no-unsafe-return": "off"
+  }
+}

@@ -1,0 +1,11 @@
+mutation login($cedula: String!, $password: String!) {
+  login(options: { cedula: $cedula, password: $password }) {
+    errors {
+      field
+      message
+    }
+    user {
+      ...FullUser
+    }
+  }
+}
