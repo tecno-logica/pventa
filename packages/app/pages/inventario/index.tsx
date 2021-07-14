@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Table from "react-bootstrap/Table";
@@ -13,14 +13,21 @@ import {
   InventarioFisicoLote,
   useGetFirstEntryQuery,
 } from "../../src/generated/graphql";
-import { useEffect } from "react";
+import LocationModal from "../../src/components/LocationModal";
+import { initialState, globalState, InventoryContext } from "../../src/context";
 
 const InventoryPage: React.FC = () => {
+  const [inventoryState, setGlobalState] = useState<globalState>(initialState);
+
   const [{ data, fetching }] = useGetFirstEntryQuery();
   const [physicalInventory, setPIL] = useState<InventarioFisico>();
   const [inventory, setInventory] = useState<Inventario>();
   const [lots, setLots] = useState<InventarioFisicoLote[]>();
   const [showModal, setShowModal] = useState(true);
+
+  useEffect(() => {
+    console.log(inventoryState);
+  }, [inventoryState]);
 
   useEffect(() => {
     if (!fetching && data?.getFirstPhysicalInventoryEntry) {
@@ -30,13 +37,14 @@ const InventoryPage: React.FC = () => {
       inventory && setInventory(inventory as Inventario);
       distribution && setLots(distribution as InventarioFisicoLote[]);
     }
+    console.log(inventoryState);
   }, [fetching, data]);
 
   return (
-    <>
+    <InventoryContext.Provider
+      value={{ ...inventoryState, setState: setGlobalState }}
+    >
       <section id="physical-inventory-master" className="card-body">
-        <LocationInputs />
-
         <div className="form-group row">
           <label htmlFor="descripcion" className="col-sm-2 col-form-label">
             Descripcion
@@ -66,6 +74,7 @@ const InventoryPage: React.FC = () => {
                 id="product-id"
                 placeholder="Código"
                 readOnly
+                onChange={() => {}}
                 value={inventory?.Codigo || ""}
               />
             </InputGroup>
@@ -81,6 +90,7 @@ const InventoryPage: React.FC = () => {
               size="sm"
               id="quantity"
               placeholder="Cantidad"
+              onChange={() => {}}
               value={physicalInventory?.Existencia || 0}
             />
           </div>
@@ -129,30 +139,9 @@ const InventoryPage: React.FC = () => {
           </tfoot>
         </Table>
       </section>
-      <Modal
-        show={showModal}
-        onHide={() => {
-          setShowModal((currentValue) => !currentValue);
-        }}
-      >
-        <Modal.Dialog>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
-          </Modal.Header>
 
-          <Modal.Body>
-            <p>Modal body text goes here.</p>
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button variant="secondary" onClick={() => setShowModal(false)}>
-              Close
-            </Button>
-            <Button variant="primary">Save changes</Button>
-          </Modal.Footer>
-        </Modal.Dialog>
-      </Modal>
-    </>
+      <LocationModal />
+    </InventoryContext.Provider>
   );
 };
 
